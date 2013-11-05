@@ -1,6 +1,0 @@
-[submodule "wiki"]
-	path = wiki
-	url = https://github.com/tehuel/bgd-tilescroll.wiki.git
-[submodule "bin"]
-	path = bin
-	url = https://github.com/tehuel/bgd-bin.git
