@@ -26,7 +26,7 @@ include "tilescroll.prg";
 
 GLOBAL
 
-	_tsmap mapa_ejemplo;
+	_tsmap example_tilemap;
 	
 	int map_layers = 3;
 	int map_width = 700;
@@ -50,31 +50,31 @@ BEGIN
 	ts.debuginfo = true;
 	
 	// variable initialization
-	tsMapAlloc( mapa_ejemplo, map_layers, map_width, map_height );
+	tsMapAlloc( example_tilemap, map_layers, map_width, map_height );
 		
 	// fills the map with random values
-	FOR ( z=0; z<mapa_ejemplo.layers; z++ )
-		FOR (x=0; x<mapa_ejemplo.width; x++)
-			FOR (y=0; y<mapa_ejemplo.height; y++)
+	FOR ( z=0; z<example_tilemap.layers; z++ )
+		FOR (x=0; x<example_tilemap.width; x++)
+			FOR (y=0; y<example_tilemap.height; y++)
 			
-				tileSet( mapa_ejemplo, z, x, y, rand(0,3) );
+				tileSet( example_tilemap, z, x, y, rand(0,3) );
 				
 			END
 		END
 	END
 	
-	tsMapSave( mapa_ejemplo, "mapa.dat" );
+	tsMapSave( example_tilemap, "mapa.dat" );
 	
-	tsMapClear( mapa_ejemplo );
+	tsMapClear( example_tilemap );
 	
-	tsMapLoad( mapa_ejemplo, "mapa.dat" );
+	tsMapLoad( example_tilemap, "mapa.dat" );
 	
 	// load FPGs ( only for 2 layers )
-	mapa_ejemplo.fpg[0] = load_fpg("fpg/terrain.fpg");
-	mapa_ejemplo.fpg[1] = load_fpg("fpg/objects.fpg");
+	example_tilemap.fpg[0] = load_fpg("fpg/terrain.fpg");
+	example_tilemap.fpg[1] = load_fpg("fpg/objects.fpg");
 	
 	// initialize the scroll
-	tsManager(0, 0, 640, 480, mapa_ejemplo, 64, 100);
+	tsManager(0, 0, 640, 480, example_tilemap, 64, 100);
 	
 	mouse.graph = 1;
 	
