@@ -7,3 +7,11 @@ cat prg/globals.prg prg/functions.prg prg/functions-debug.prg prg/scroll.prg > t
 cd 'test/'
 bgdc 'test.prg'
 #bgdi 'test.dcb'
+
+# invert output status of bgdc
+if [ $? -eq 1 ]
+then
+  exit 0
+else
+  exit 1
+fi
