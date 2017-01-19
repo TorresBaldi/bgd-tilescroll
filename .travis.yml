@@ -24,7 +24,9 @@ before_script:
 script:
   - cd test && ./test.sh && cd ..
 
-before_deploy: ls -la
+notifications:
+  email: false
+
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
