@@ -17,6 +17,9 @@ install:
   - sudo ldconfig -v
 
 before_script:
+  - sudo chmod +x build.sh
+  - ./build.sh
+  - cd test
   - sudo chmod +x test.sh
 
 script:
