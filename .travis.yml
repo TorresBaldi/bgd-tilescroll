@@ -13,21 +13,21 @@ install:
   - wget http://www.bennugd.org/downloads/bgd-1.0.0-r335-linux.tar.gz
   - tar -zxvf bgd-1.0.0-r335-linux.tar.gz
   - chmod +x bin/*
-  - sudo mv bin/* /usr/local/bin/ && sudo mv lib/* /usr/local/lib/
+  - sudo mv bin/* /usr/local/bin/
+  - sudo mv lib/* /usr/local/lib/
   - sudo ldconfig -v
 
 before_script:
-  - sudo chmod +x build.sh
+  - sudo chmod +x build.sh test/test.sh
   - ./build.sh
-  - cd test
-  - sudo chmod +x test.sh
 
 script:
-  - ./test.sh
+  - cd test && ./test.sh
 
+before_deploy: ls -la
 deploy:
   provider: releases
-  api_key: 3a2a0b4a47fdc0cf09901765a2879ea935af3046
+  api_key: $GITHUB_TOKEN
   file: tilescroll.prg
   skip_cleanup: true
   on:
