@@ -22,7 +22,7 @@ before_script:
   - ./build.sh
 
 script:
-  - cd test && ./test.sh
+  - cd test && ./test.sh && cd ..
 
 before_deploy: ls -la
 deploy:
