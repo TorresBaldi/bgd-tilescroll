@@ -8,6 +8,10 @@ BennuGD Simple library to manage a tiled-scroll
 
 # Changelog
 
+[1.0a]
+
+- fix en release script
+
 [1.0]
 
 - initial Github Release
